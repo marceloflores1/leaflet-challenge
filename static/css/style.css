@@ -8,3 +8,43 @@ body,
 html {
   height: 100%;
 }
+
+i {
+  width: 12px;
+  height: 12px;
+  float: left;
+  margin-right: 6px;
+}
+
+#legend1 {
+  background-color: #bfff00;
+}
+
+#legend2 {
+  background-color: #f2ff00;
+}
+
+#legend3 {
+  background-color: #ffcc00;
+}
+
+#legend4 {
+  background-color: #ff8400;
+}
+
+#legend5 {
+  background-color: #ff4d00;
+}
+
+#legend6 {
+  background-color: #ff0000;
+}
+
+.info {
+  padding: 6px 8px;
+  font: 12px/15px Arial, Helvetica, sans-serif;
+  background: white;
+  background: rgba(255,255,255,0.8);
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  border-radius: 5px;
+}

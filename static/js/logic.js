@@ -54,7 +54,15 @@ d3.json(earthquakeUrl).then(function(response){
     })
 
     info.onAdd = function() {
-        var div = L.DomUtil.create("div", "legend");
+        var div = L.DomUtil.create("div", "info legend");
+        div.innerHTML = [
+            `<i id="legend1"></i>-10 - 10<br>`,
+            `<i id="legend2"></i>10 - 30<br>`,
+            `<i id="legend3"></i>30 - 50<br>`,
+            `<i id="legend4"></i>50 - 70<br>`,
+            `<i id="legend5"></i>70 - 90<br>`,
+            `<i id="legend6"></i>90+`
+        ].join("")
         return div;
       };
 
@@ -63,22 +71,10 @@ d3.json(earthquakeUrl).then(function(response){
 });
 
 function eqMarkerColor(depth){
-    
-    var color = "";
-    
-    if(depth >= 90){
-        color = "#ff0000";
-    } else if (depth >= 70){
-        color = "#ff4d00";
-    } else if (depth >= 50){
-        color = "#ff8400";
-    } else if (depth >= 30){
-        color = "#ffcc00";
-    } else if (depth >= 10){
-        color = "#f2ff00";
-    } else {
-        color = "#bfff00";
-    }
-    return color;
-
-}
+    return depth >= 90 ? "#ff0000" :
+    depth >= 70 ? "#ff4d00" :
+    depth >= 50 ? "#ff8400" :
+    depth >= 30 ? "#ffcc00" :
+    depth >= 10 ? "#f2ff00" :
+    "#bfff00"
+};
