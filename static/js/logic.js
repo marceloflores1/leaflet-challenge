@@ -13,7 +13,7 @@ d3.json(earthquakeUrl).then(function(response){
         var eqTitle = feature.properties.title;
         var eqTime = feature.properties.time;
         var eqMarker = L.circleMarker([eqCoords[1],eqCoords[0]],{
-            fillOpacity: .85,
+            fillOpacity: .5,
             weight: .5,
             color: "black",
             fillColor: "green",
@@ -38,14 +38,10 @@ d3.json(earthquakeUrl).then(function(response){
     };
 
     var myMap = L.map("map-id", {
-        center: [35, -110],
-        zoom: 6,
+        center: [0, 0],
+        zoom: 2,
         layers: [lightmap, eqLayer]
     });
-
-    L.control.layers(baseMaps, overlayMap, {
-        collapsed: false
-    }).addTo(myMap);
 
     var info = L.control({
         position: "bottomright"
