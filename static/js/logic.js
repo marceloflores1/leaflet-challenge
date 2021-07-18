@@ -38,10 +38,14 @@ d3.json(earthquakeUrl).then(function(response){
     };
 
     var myMap = L.map("map-id", {
-        center: [0, 0],
-        zoom: 2,
+        center: [35, -100],
+        zoom: 5,
         layers: [lightmap, eqLayer]
     });
+
+    L.control.layers(baseMaps, overlayMap, {
+        collapsed: true
+    }).addTo(myMap);
 
     var info = L.control({
         position: "bottomright"
@@ -50,7 +54,7 @@ d3.json(earthquakeUrl).then(function(response){
     info.onAdd = function() {
         var div = L.DomUtil.create("div", "legend");
         return div;
-    }
+      };
 
     info.addTo(myMap);
 });
