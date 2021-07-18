@@ -31,31 +31,20 @@ d3.json(earthquakeUrl).then(function(response){
         accessToken: API_KEY
     });
 
-    var baseMaps = {
-        "Light Map": lightmap
-    };
-
-    var overlayMap = {
-        "Earthquakes": eqLayer
-    };
-
     var myMap = L.map("map-id", {
         center: [40, -107],
         zoom: 6,
         layers: [lightmap, eqLayer]
     });
 
-    L.control.layers(baseMaps, overlayMap, {
-        collapsed: true
-    }).addTo(myMap);
-
     var info = L.control({
         position: "bottomright"
     })
 
     info.onAdd = function() {
-        var div = L.DomUtil.create("div", "info legend");
+        var div = L.DomUtil.create("div", "legend");
         div.innerHTML = [
+            `<strong>Magnitude</strong><br>`,
             `<i id="legend1"></i>-10-10<br>`,
             `<i id="legend2"></i>10-30<br>`,
             `<i id="legend3"></i>30-50<br>`,
