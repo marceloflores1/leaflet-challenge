@@ -56,7 +56,7 @@ d3.json(earthquakeUrl).then(function(response){
       };
 
     info.addTo(myMap);
-    
+
 });
 
 function eqMarkerColor(depth){
@@ -67,3 +67,4 @@ function eqMarkerColor(depth){
     depth >= 10 ? "#f2ff00" :
     "#bfff00"
 };
+
