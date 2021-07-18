@@ -56,11 +56,11 @@ d3.json(earthquakeUrl).then(function(response){
     info.onAdd = function() {
         var div = L.DomUtil.create("div", "info legend");
         div.innerHTML = [
-            `<i id="legend1"></i>-10 - 10<br>`,
-            `<i id="legend2"></i>10 - 30<br>`,
-            `<i id="legend3"></i>30 - 50<br>`,
-            `<i id="legend4"></i>50 - 70<br>`,
-            `<i id="legend5"></i>70 - 90<br>`,
+            `<i id="legend1"></i>-10-10<br>`,
+            `<i id="legend2"></i>10-30<br>`,
+            `<i id="legend3"></i>30-50<br>`,
+            `<i id="legend4"></i>50-70<br>`,
+            `<i id="legend5"></i>70-90<br>`,
             `<i id="legend6"></i>90+`
         ].join("")
         return div;
