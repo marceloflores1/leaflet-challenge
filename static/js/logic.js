@@ -1,11 +1,11 @@
-// Create the tile layer that will be the background of our map
-
-
 var earthquakeUrl = "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_day.geojson";
 
 d3.json(earthquakeUrl).then(function(response){
+    
     var features = response.features;
+    
     var eqMarkers = [];
+    
     for(var i=0; i < features.length; i++){
         var feature = features[i];
         var eqCoords = feature.geometry.coordinates;
@@ -13,15 +13,17 @@ d3.json(earthquakeUrl).then(function(response){
         var eqTitle = feature.properties.title;
         var eqTime = feature.properties.time;
         var eqMarker = L.circleMarker([eqCoords[1],eqCoords[0]],{
-            fillOpacity: .5,
+            fillOpacity: .75,
             weight: .5,
             color: "black",
-            fillColor: "green",
+            fillColor: eqMarkerColor(eqCoords[2]),
             radius: (eqMagnitude * 5)
         }).bindPopup(`<h1>${eqTitle}</h1><hr><h3>Time: ${new Date(eqTime)}</h3><hr><h3>Depth: ${eqCoords[2]}</h3>`);
         eqMarkers.push(eqMarker);
     };
+    
     var eqLayer = L.layerGroup(eqMarkers);
+    
     var lightmap = L.tileLayer("https://api.mapbox.com/styles/v1/mapbox/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}", {
         attribution: "Map data &copy; <a href=\"https://www.openstreetmap.org/\">OpenStreetMap</a> contributors, <a href=\"https://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA</a>, Imagery © <a href=\"https://www.mapbox.com/\">Mapbox</a>",
         maxZoom: 18,
@@ -38,8 +40,8 @@ d3.json(earthquakeUrl).then(function(response){
     };
 
     var myMap = L.map("map-id", {
-        center: [35, -100],
-        zoom: 5,
+        center: [40, -107],
+        zoom: 6,
         layers: [lightmap, eqLayer]
     });
 
@@ -57,4 +59,26 @@ d3.json(earthquakeUrl).then(function(response){
       };
 
     info.addTo(myMap);
+    
 });
+
+function eqMarkerColor(depth){
+    
+    var color = "";
+    
+    if(depth >= 90){
+        color = "#ff0000";
+    } else if (depth >= 70){
+        color = "#ff4d00";
+    } else if (depth >= 50){
+        color = "#ff8400";
+    } else if (depth >= 30){
+        color = "#ffcc00";
+    } else if (depth >= 10){
+        color = "#f2ff00";
+    } else {
+        color = "#bfff00";
+    }
+    return color;
+
+}
