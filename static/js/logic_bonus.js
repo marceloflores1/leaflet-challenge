@@ -17,7 +17,7 @@ d3.json(earthquakeUrl).then(function(response){
             weight: .5,
             color: "black",
             fillColor: eqMarkerColor(eqCoords[2]),
-            radius: (eqMagnitude * 5)
+            radius: (eqMagnitude * 4)
         }).bindPopup(`<h1>${eqTitle}</h1><hr><h3>Time: ${new Date(eqTime)}</h3><hr><h3>Depth: ${eqCoords[2]}</h3>`);
         eqMarkers.push(eqMarker);
     };
