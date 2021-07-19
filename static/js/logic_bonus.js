@@ -71,7 +71,7 @@ d3.json(earthquakeUrl).then(function(response){
 
     d3.json("https://raw.githubusercontent.com/fraxen/tectonicplates/master/GeoJSON/PB2002_boundaries.json").then(data=>{
         L.geoJson(data,{
-            color: "#FFA500",
+            color: "#ff6f00",
             weight: 3
         }).addTo(tectonic)
 
