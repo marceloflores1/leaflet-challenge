@@ -42,16 +42,6 @@ d3.json(earthquakeUrl).then(function(response){
         accessToken: API_KEY
     });
 
-    var bubblegmap = L.tileLayer("https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}", {
-        attribution: "© <a href='https://www.mapbox.com/about/maps/'>Mapbox</a> © <a href='http://www.openstreetmap.org/copyright'>OpenStreetMap</a> <strong><a href='https://www.mapbox.com/map-feedback/' target='_blank'>Improve this map</a></strong>",
-        tileSize: 512,
-        maxZoom: 18,
-        zoomOffset: -1,
-        id: "mapbox/outdoors-v11",
-        style: "mapbox://styles/amarcelo28/ckr9g5oul27h217oddif0ufqa",
-        accessToken: API_KEY
-    });
-
     var satellitemap = L.tileLayer("https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}", {
         attribution: "© <a href='https://www.mapbox.com/about/maps/'>Mapbox</a> © <a href='http://www.openstreetmap.org/copyright'>OpenStreetMap</a> <strong><a href='https://www.mapbox.com/map-feedback/' target='_blank'>Improve this map</a></strong>",
         tileSize: 512,
@@ -65,6 +55,15 @@ d3.json(earthquakeUrl).then(function(response){
         attribution: "Map data &copy; <a href=\"https://www.openstreetmap.org/\">OpenStreetMap</a> contributors, <a href=\"https://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA</a>, Imagery © <a href=\"https://www.mapbox.com/\">Mapbox</a>",
         maxZoom: 18,
         id: "light-v10",
+        accessToken: API_KEY
+    });
+
+    var bubblegmap = L.tileLayer("https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}", {
+        attribution: "© <a href='https://www.mapbox.com/about/maps/'>Mapbox</a> © <a href='http://www.openstreetmap.org/copyright'>OpenStreetMap</a> <strong><a href='https://www.mapbox.com/map-feedback/' target='_blank'>Improve this map</a></strong>",
+        tileSize: 512,
+        maxZoom: 18,
+        zoomOffset: -1,
+        id: "amarcelo28/ckr9g5oul27h217oddif0ufqa",
         accessToken: API_KEY
     });
 
@@ -82,7 +81,7 @@ d3.json(earthquakeUrl).then(function(response){
     var myMap = L.map("map-id", {
         center: [0, 0],
         zoom: 2,
-        layers: [streetsmap, outdoorsmap, bubblegmap, satellitemap, lightmap, eqLayer, tectonic]
+        layers: [streetsmap, outdoorsmap, satellitemap, lightmap, bubblegmap, eqLayer, tectonic]
     });
 
     var info = L.control({
@@ -108,9 +107,9 @@ d3.json(earthquakeUrl).then(function(response){
     var baseMaps = {
         "Street Map": streetsmap,
         "Outdoor Map": outdoorsmap,
-        "Bubblegum Map": bubblegmap,
         "Satellite Map": satellitemap,
-        "Light Map": lightmap
+        "Light Map": lightmap,
+        "Bubblegum Map": bubblegmap
     };
 
     var overlayMaps = {
