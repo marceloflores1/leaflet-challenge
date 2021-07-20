@@ -7,6 +7,11 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Leaflet Step-1</title>
 
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" 
+    integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" 
+    crossorigin="anonymous">
+
   <!-- Leaflet CSS -->
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
     integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
@@ -17,9 +22,26 @@
 </head>
 
 <body>
+  <div class="container-fluid">
+    Data: <button id="dateButton" type="button" class="btn btn-primary" value="Day">Last Day</button>
+    <button id="dateButton" type="button" class="btn btn-secondary" value="Week">Last Week</button>
+    <button id="dateButton" type="button" class="btn btn-secondary" value="Month">Last Month</button><span></span>
+    Region: <button id="regionButton" type="button" class="btn btn-primary" value="World">World</button>
+    <button id="regionButton" type="button" class="btn btn-secondary" value="North America">North America</button>
+    <button id="regionButton" type="button" class="btn btn-secondary" value="South America">South America</button>
+    <button id="regionButton" type="button" class="btn btn-secondary" value="Europe">Europe</button>
+    <button id="regionButton" type="button" class="btn btn-secondary" value="Africa">Africa</button>
+    <button id="regionButton" type="button" class="btn btn-secondary" value="Asia">Asia</button>
+    <button id="regionButton" type="button" class="btn btn-secondary" value="Antarctica">Antarctica</button>
+    <button id="regionButton" type="button" class="btn btn-secondary" value="Oceania">Oceania</button>
+  </div>
   <!-- The div that holds our map -->
   <div id="map-id"></div>
 
+  <!-- Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
   <!-- Leaflet JS -->
   <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
     integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
@@ -29,7 +51,7 @@
   <!-- API key -->
   <script type="text/javascript" src="static/js/config.js"></script>
   <!-- Our JavaScript -->
-  <script type="text/javascript" src="static/js/logic_bonus.js"></script>
+  <script type="text/javascript" src="static/js/logic_bonus2.js"></script>
 </body>
 
 </html>
