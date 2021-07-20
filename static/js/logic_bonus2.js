@@ -1,10 +1,6 @@
-// Default variables
-var earthquakeUrl = "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_day.geojson";
-var mapCenter = [0,0];
-var mapZoom = 2;
-
+// Information 
 var continentsPosition = {
-    "World": [0,0,2],
+    "World": [0,0,3],
     "North America": [54.5260,-105.2551,4],
     "South America": [-8.7832,-55.4915,4],
     "Europe": [54.5260, 15.2551,4],
@@ -14,11 +10,17 @@ var continentsPosition = {
     "Oceania": [-22.7359,140.0188,5]
 }
 
+// Urls for Earthquake Data
 var periodsUrl = {
     "Day": "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_day.geojson",
     "Week": "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.geojson",
     "Month": "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_month.geojson"
 }
+
+// Default variables
+var earthquakeUrl = periodsUrl["Day"];
+var mapCenter = [continentsPosition["World"][0], continentsPosition["World"][1]];
+var mapZoom = continentsPosition["World"][2];
 
 function createMaps(url, mapCenter, mapZoom) {
 
@@ -182,6 +184,9 @@ d3.selectAll("#regionButton").on("click", function(){
     d3.selectAll("#regionButton").attr("class", "btn btn-secondary")
     d3.select(this).attr("class", "btn btn-primary")
     var value = d3.select(this).attr("value");
+
+    Object.continentsPosition
+
     if(value === "North America"){
         mapCenter = [continentsPosition["North America"][0], continentsPosition["North America"][1]];
         mapZoom = continentsPosition["North America"][2];
